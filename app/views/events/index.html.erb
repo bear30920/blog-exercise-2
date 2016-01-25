@@ -1,0 +1,20 @@
+<h1>Events list</h1>
+
+<ul>
+<% @events.each do |e| %>
+<li>
+    <%= e.name %>
+
+    <%= link_to "show", :controller=> "events", :action => "show", :id => e %>
+<!-- 連結轉到events controller  底下的action 為show 每篇文章都有個id -->
+    <%= link_to "edit", :controller => "events", :action => "edit", :id => e %>
+
+    <%= link_to "Delete", :controller => "events", :action => "destroy", :id => e %>
+
+</li>
+
+<% end %>
+</ul>
+
+<%= link_to 'New Event', :controller => 'events', :action => 'new' %>
+<!-- 連結  轉到events controller  底下的action 為new -->

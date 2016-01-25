@@ -59,4 +59,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  match ':controller(/:action(/:id(.:format)))', :via => :all
+  #外卡路由 會將/foo/bar這樣的網址自動對應到controller foo的bar action
+  #如果是/foo這樣網址,則預設對應到index action
 end

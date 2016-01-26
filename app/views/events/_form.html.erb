@@ -1,0 +1,19 @@
+<% if @event.errors.any? %>
+<!-- 假如 @event 有任何錯誤 -->
+    <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+        <!-- 把全部的錯誤一個一個印出來-->
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+</p>
+
+<p>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+</p>

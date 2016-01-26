@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Demo</title>
+  <title><%= @page_title || "Demo" %></title>
+  <!-- 從events controller 的 show action  傳來 ,顯示文章標題,沒標題顯示Demo  -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <p style="color: green"><%= flash[:notice] %></p>
+    <p style="color: red"><%= flash[:alert] %></p>
+    <!--有設定的話可以顯示錯誤訊息 -->
 
 <%= yield %>
 

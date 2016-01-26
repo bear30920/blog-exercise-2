@@ -1,12 +1,11 @@
 <%= form_for @event, :url => { :controller => 'events', :action => 'update', :id => @event } do |f| %>
 <!-- 當表單送出會送到update action  為何加入
-:id =>@event 有待驗證-->
+:id =>@event 有待驗證 -->
 
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+    <!-- paritial 局部樣板 渲染_form 這個檔案,傳遞區域變數過來這裡(有待驗證)-->
 
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+
 
     <%= f.submit "Update" %>
 <% end %>

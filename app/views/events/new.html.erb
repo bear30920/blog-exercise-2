@@ -2,11 +2,8 @@
 
 <!-- 當你按下按鈕 會送到 events controller 的create action -->
 
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+ <!-- paritial 局部樣板 渲染_form 這個檔案,傳遞區域變數過來這裡(有待驗證)-->
 
     <%= f.submit "Create" %>
 

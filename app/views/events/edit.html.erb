@@ -1,6 +1,5 @@
-<%= form_for @event, :url => { :controller => 'events', :action => 'update', :id => @event } do |f| %>
-<!-- 當表單送出會送到update action  為何加入
-:id =>@event 有待驗證 -->
+<%= form_for @event, :url => event_path(@event), :method => :patch do |f| %>
+<!-- 當表單送出會送到update action , edit 是單數根據文章的ID 所以要加上參數＠event ,有待驗證 -->
 
     <%= render :partial => "form", :locals => { :f => f } %>
     <!-- paritial 局部樣板 渲染_form 這個檔案,傳遞區域變數過來這裡(有待驗證)-->

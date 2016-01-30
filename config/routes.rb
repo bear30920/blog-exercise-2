@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :events
+  #名稱採用複數
   
   resources :people
     get "/welcome/say_hello" => "welcome#say"

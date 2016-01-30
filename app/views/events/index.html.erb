@@ -5,19 +5,21 @@
 <li>
     <%= e.name %>
 
-    <%= link_to "show", :controller=> "events", :action => "show", :id => e %>
-<!-- 連結轉到events controller  底下的action 為show 每篇文章都有個id -->
-    <%= link_to "edit", :controller => "events", :action => "edit", :id => e %>
-
-    <%= link_to "Delete", :controller => "events", :action => "destroy", :id => e %>
+    <%= link_to "show", event_path(e) %>
+     <!--  show 是單數-->
+    <%= link_to "edit", edit_event_path(e) %>
+    
+    <%= link_to "Delete", event_path(e), :method => :delete %>
+    <!--  超連結http預設是 get ,這裡指定delete   
+       也可以寫成這樣   method: "delete" -->
 
 </li>
 
 <% end %>
 </ul>
 
-<%= link_to 'New Event', :controller => 'events', :action => 'new' %>
-<!-- 連結  轉到events controller  底下的action 為new -->
+<%= link_to 'New Event', new_event_path %>
+
 
 <%= paginate @events %>
 <!-- kaminari 外掛提供view helper 產生分頁功能-->

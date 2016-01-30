@@ -26,8 +26,8 @@ class EventsController < ApplicationController
 
            flash[:notice] = "新增成功"
             #成功可以顯示訊息,需要先在layouts設定
-            redirect_to :action => :index
-        #轉到 index 頁面,可以省略:action
+            redirect_to events_path
+        #轉到 index 頁面
         else
             render :action => :new 
             #失敗的話這裡是顯示new.html.erb,所以不是真的執行action
@@ -44,8 +44,8 @@ class EventsController < ApplicationController
 
             flash[:notice] = "編輯成功"
 
-            redirect_to :action => :show, :id => @event
-        #轉向頁面到show action ,為何加入:id => @event 有待驗證
+            redirect_to event_path(@event)
+        #轉向頁面到show action ,單數所以要加參數
         else
             render :action => :edit
         end
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
         #刪除
         flash[:alert] = "刪除成功"
         
-        redirect_to :action => :index
+        redirect_to events_path
     end
 
 
